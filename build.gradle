@@ -1,0 +1,36 @@
+buildscript {
+    // ext는 build.gradle에서 사용하는 전역변수를 설정하겠다는 의미이다.
+    ext {
+        springBootVersion = '2.1.7.RELEASE' //springBootVersion을 2.1.7.RELEASE로 하겠다는 의미이다.
+    }
+
+    // repositories는 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지를 정한다.
+    repositories {
+        mavenCentral()  //기본적으로 얘를 많이 사용
+    }
+
+    dependencies {
+        // spring-boot-gradle-plugin이라는 스프링 부트 그레들 플러그인의 2.1.7.RELEASE를 의존성으로 받음
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+   }
+}
+
+// 자바와 스프링부트를 사용하기 위해 꼭 필요한 플러그인들 항상 추가해주자
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' // 스프링부트의 의존성들을 관리해주는 플러그인
+
+group 'com.project.spring'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+// 프로젝트에 필요한 의존성 선언부
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testCompileOnly('org.springframework.boot:spring-boot-starter-test')
+}
