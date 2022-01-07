@@ -3,11 +3,8 @@ package com.shop.test.web.dto;
 import lombok.*;
 
 @Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
+@RequiredArgsConstructor
 public class HelloResponseDto {
-    String name;
-    int amount;
+    private final String name;
+    private final int amount;
 }
