@@ -4,7 +4,6 @@ import com.shop.test.web.domain.posts.Posts;
 import com.shop.test.web.domain.posts.PostsRepository;
 import com.shop.test.web.dto.PostsSaveRequestDto;
 import com.shop.test.web.dto.PostsUpdateRequestDto;
-import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
