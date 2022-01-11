@@ -1,7 +1,7 @@
 package com.shop.test.web;
 
-import com.shop.test.web.domain.posts.Posts;
-import com.shop.test.web.domain.posts.PostsRepository;
+import com.shop.test.domain.posts.Posts;
+import com.shop.test.domain.posts.PostsRepository;
 import com.shop.test.web.dto.PostsSaveRequestDto;
 import com.shop.test.web.dto.PostsUpdateRequestDto;
 import org.junit.After;

@@ -1,7 +1,7 @@
-package com.shop.test.web.service.posts;
+package com.shop.test.service.posts;
 
-import com.shop.test.web.domain.posts.Posts;
-import com.shop.test.web.domain.posts.PostsRepository;
+import com.shop.test.domain.posts.Posts;
+import com.shop.test.domain.posts.PostsRepository;
 import com.shop.test.web.dto.PostsListResponseDto;
 import com.shop.test.web.dto.PostsResponseDto;
 import com.shop.test.web.dto.PostsSaveRequestDto;

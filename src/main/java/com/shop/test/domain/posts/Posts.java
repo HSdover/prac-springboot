@@ -1,6 +1,6 @@
-package com.shop.test.web.domain.posts;
+package com.shop.test.domain.posts;
 
-import com.shop.test.web.domain.BaseTimeEntity;
+import com.shop.test.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

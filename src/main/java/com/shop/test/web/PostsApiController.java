@@ -3,7 +3,7 @@ package com.shop.test.web;
 import com.shop.test.web.dto.PostsResponseDto;
 import com.shop.test.web.dto.PostsSaveRequestDto;
 import com.shop.test.web.dto.PostsUpdateRequestDto;
-import com.shop.test.web.service.posts.PostsService;
+import com.shop.test.service.posts.PostsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

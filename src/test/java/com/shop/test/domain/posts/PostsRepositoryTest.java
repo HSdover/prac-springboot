@@ -1,7 +1,5 @@
 package com.shop.test.domain.posts;
 
-import com.shop.test.web.domain.posts.Posts;
-import com.shop.test.web.domain.posts.PostsRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

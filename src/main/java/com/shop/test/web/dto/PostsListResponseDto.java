@@ -1,6 +1,6 @@
 package com.shop.test.web.dto;
 
-import com.shop.test.web.domain.posts.Posts;
+import com.shop.test.domain.posts.Posts;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
