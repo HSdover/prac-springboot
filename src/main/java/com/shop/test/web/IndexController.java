@@ -1,5 +1,6 @@
 package com.shop.test.web;
 
+import com.shop.test.config.auth.dto.SessionUser;
 import com.shop.test.web.dto.PostsResponseDto;
 import com.shop.test.service.posts.PostsService;
 import lombok.RequiredArgsConstructor;
@@ -8,15 +9,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.servlet.http.HttpSession;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+
+        if(user != null) {
+            System.out.println(user.getName() + user.getEmail() + user.getPicture());
+            model.addAttribute("logName", user.getName());
+        }
         return "index";
     }
 
@@ -32,5 +42,4 @@ public class IndexController {
 
         return "posts-update";
     }
-
 }
