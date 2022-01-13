@@ -1,9 +1,13 @@
 package com.shop.test;
 
+import com.shop.test.config.auth.SecurityConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -18,7 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // Web(spring MVC)에 집중할 수 있는 어노테이션
 // @Service, @Component, @Repository에는 사용 x
 // 컨트롤러만 사용하기 때문에 선언한다!
-@WebMvcTest(controllers = HelloController.class)
+@WebMvcTest(controllers = HelloController.class,
+        excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)})
 public class HelloControllerTest {
 
     // 스프링이 관리(IoC)하는 빈(Bean)을 주입 받는다. (DI)
@@ -28,6 +33,7 @@ public class HelloControllerTest {
     // 이 클래스를 통해 HTTP GET, POST등에 대한 API테스트를 할 수 있다.
     private MockMvc mvc;
 
+    @WithMockUser(roles="USER")
     @Test
     public void hello가_리턴된다() throws Exception {
         String hello = "hello";
@@ -39,6 +45,7 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));    // 응답 본문의 내용을 검증한다. (Controller에서 "hello"를 리턴하기에 똑같은지 확인
     }
 
+    @WithMockUser(roles="USER")
     @Test
     public void helloDto가_리턴된다() throws Exception {
         String name = "test";

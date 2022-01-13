@@ -21,7 +21,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management' // 스프링부트의 의존성들을 관리해주는 플러그인
 
-group 'com.project.spring'
+group 'com.shop.test'
 version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -35,9 +35,11 @@ dependencies {
     implementation('org.projectlombok:lombok')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('com.h2database:h2')
-    implementation('junit:junit:4.13.1')
+    implementation 'junit:junit:4.13.1'
     implementation('org.springframework.boot:spring-boot-starter-mustache')
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    testCompileOnly('org.springframework.boot:spring-boot-starter-test')
+    implementation('org.springframework.boot:spring-boot-starter-security')
+    implementation('org.springframework.session:spring-session-jdbc')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation("org.springframework.security:spring-security-test")
 }
